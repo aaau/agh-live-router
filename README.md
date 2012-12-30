@@ -1,2 +1,4 @@
-agh-live-router
+AGH Live Router
 ===============
+
+http://piotrjurkiewicz.github.com/agh-live-router/
