@@ -7,13 +7,13 @@ Find out more in [presentation](http://prezi.com/iez6ctgkd8dt/agh-live-router/).
 
 
 Details
-=======
+-------
 
 ISO file contains image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click module. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.
 
 
 Usage
-=====
+-----
 
 Bootable live USB drive can be created with the [UNetbootin](http://unetbootin.sourceforge.net/) application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory must be created manually. The directory should contain the following files:
 
@@ -57,13 +57,13 @@ The click_generator file contains an AWK script, which generates the kernel-leve
 
 
 Download
-========
+--------
 
 [Download ISO image](http://pluton.kt.agh.edu.pl/~pjurkiewicz/agh-live-router.iso)
 
 
 Credentials
-===========
+-----------
 
 Default user:
 
