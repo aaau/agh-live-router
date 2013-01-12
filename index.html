@@ -29,13 +29,13 @@
 
 <h3>Usage</h3>
 
-<p align="justify">Bootable Live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configration files should be placed in "config" directory on the USB drive. This directory must be created manually. The directory should contain the following files:</p>
+<p align="justify">Bootable live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configration files should be placed in "config" directory on the USB drive. This directory must be created manually. The directory should contain the following files:</p>
 
 <pre><code>X:\config\config.boot
 X:\config\click_generator
 </code></pre>
 
-<p align="justify">The<code>config.boot</code> file contains XORP configuration. A XORP router must be configured to perform the desired operations. At very minimum, a router’s interfaces and FEA must be configured. A very simply configuration can be found there. More information about writing XORP configurations you can find in the relevant XORP <a href="http://xorp.run.montefiore.ulg.ac.be/latex2wiki/user_manual/configuration_overview">manual section</a>.</p> <p>In case of AGH Live Router system, configuration file should contain the following FEA section:</p>
+<p align="justify">The<code>config.boot</code> file contains XORP configuration. A XORP router must be configured to perform the desired operations. At very minimum, a router’s interfaces and FEA must be configured. A very simply configuration can be found <a href="https://github.com/piotrjurkiewicz/agh-live-router/tree/master/configurations/simple/config">there</a>. More information about writing XORP configurations you can find in the relevant XORP <a href="http://xorp.run.montefiore.ulg.ac.be/latex2wiki/user_manual/configuration_overview">manual section</a>.</p> <p>In case of AGH Live Router system, configuration file should contain the following FEA section:</p>
 
 <pre><code>fea {
     unicast-forwarding4 {
