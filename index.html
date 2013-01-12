@@ -31,11 +31,41 @@
 
 <p align="justify">Bootable Live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configration files should be placed in "config" directory on the USB drive. This diretory should be created manually. The directory should contain the following files:</p>
 
-<p><code>config.boot</code> file contains XORP configuration. </p>
-
 <pre><code>X:\config\config.boot
 X:\config\click_generator
 </code></pre>
+
+<p>The<code>config.boot</code> file contains XORP configuration. A XORP router must be configured to perform the desired operations. At very minimum, a router’s interfaces and FEA must be configured. More information about writing XORP configurations you can find in the <a href="http://xorp.run.montefiore.ulg.ac.be/latex2wiki/user_manual/configuration_overview">manual</a>. In case of AGH Live Router distribution, configuration file should contain the following FEA section:</p>
+
+<pre><code>fea {
+    unicast-forwarding4 {
+  	disable: false
+    }
+    click {
+		disable: false
+		duplicate-routes-to-kernel: true
+
+		kernel-click {
+			disable: false
+			install-on-startup:	true
+			kernel-click-modules: "/usr/local/lib/proclikefs.ko:/usr/local/lib/click.ko"
+			mount-directory: "/click"
+			kernel-click-config-generator-file: "/etc/xorp/click_generator"
+		}
+
+		user-click {
+			disable: true
+			command-file: "/usr/local/bin/click"
+			command-extra-arguments: "-R"
+			command-execute-on-startup: true
+			control-address: 127.0.0.1
+			control-socket-port: 13000
+			startup-config-file: "/dev/null"
+			user-click-config-generator-file: "/etc/xorp/click_generator"
+		}
+    }
+}</code></pre>
+
 
 <h3>Download</h3>
 <p><a href="http://pluton.kt.agh.edu.pl/~pjurkiewicz/agh-live-router.iso">ISO image</a></p>
