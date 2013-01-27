@@ -25,11 +25,11 @@
 
 <h3>Details</h3>
 
-<p align="justify">ISO file contains image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click module. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.</p>
+<p align="justify">ISO file contains image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click modules. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.</p>
 
 <h3>Usage</h3>
 
-<p align="justify">Bootable live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory must be created manually. The directory should contain the following files:</p>
+<p align="justify">Bootable live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. This configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory must be created manually first. The directory should contain the following files:</p>
 
 <pre><code>X:\config\config.boot
 X:\config\click_generator
@@ -66,17 +66,29 @@ X:\config\click_generator
     }
 }</code></pre>
 
-<p align="justify">The<code>click_generator</code>file contains an AWK script, which generates the kernel-level Click configuration from the XORP configuration. The script is called on-demand by the FEA whenever the network interface information changes. The default script you can find <a href="https://github.com/piotrjurkiewicz/agh-live-router/blob/master/configurations/simple/config/click_generator">there</a>. You may not want to modify generator script, unless you are making significant changes in router's functioning.</p>
+<p align="justify">The<code>click_generator</code>file contains an AWK script, which generates the kernel-level Click configuration from the XORP configuration. The script is called on-demand by the FEA whenever the network interface information changes. The default script you can find <a href="https://github.com/piotrjurkiewicz/agh-live-router/blob/master/configurations/simple/config/click_generator">there</a>. You may not want to modify the generator script, unless you are making significant changes in router's packet forwarding mechanisms.</p>
 
 <p align="justify">You can also run system directly from ISO file in a virtual machine. If you want to put configuration and package files into an ISO image, you can use UltraISO application (for Windows). It has a feature of editing ISO images and adding additional files.</p>
 
 <h3>Packages</h3>
 
-<p align="justify">Distribution supports simple addition of Click packages modules. Package modules, compiles as kernel modules (.ko) should be placed in "packages" directory. Similar as "config" directory, this should be created manually too. After placing .ko file in "packages" you should do the following things:</p>
+<p align="justify">Distribution supports simple loading of Click packages. Packages modules, compiled as kernel modules (.ko) should be placed in "packages" directory. Similarly as "config" directory, this should be created manually too. After placing .ko file in "packages" you should do the following things:</p>
 
 <p align="justify">a) In <code>config.boot</code> file you should add path to module in "kernel-click modules":</p>
 
-<pre><code>kernel-click-modules: "/usr/local/lib/proclikefs.ko:/usr/local/lib/click.ko:<span style="color: red;">/live/image/packages/package.ko</span>"</code></pre>
+<pre><code>kernel-click-modules: "/usr/local/lib/proclikefs.ko:/usr/local/lib/click.ko:<span style="color: red;">/live/image/packages/package_name.ko</span>"</code></pre>
+
+<p align="justify">b) Moreover, <code>require(packet_name);</code> declaration should appear in Click's configuration. If you are using <code>click_generator</code> script to generate Click configuration, you should place appropriate instructions in function which generates headers:</p>
+
+<pre><code>function generate_click_config_header()
+{
+    printf("//\n");
+    printf("// Generated by XORP FEA\n");
+    printf("//\n");
+    printf("\n\n");
+    printf("require(famtar);");
+    printf("\n\n");
+}</code></pre>
 
 <h3>Download</h3>
 <p><a href="http://pluton.kt.agh.edu.pl/~pjurkiewicz/agh-live-router.iso">ISO image</a></p>
