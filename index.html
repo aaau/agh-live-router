@@ -68,6 +68,16 @@ X:\config\click_generator
 
 <p align="justify">The<code>click_generator</code>file contains an AWK script, which generates the kernel-level Click configuration from the XORP configuration. The script is called on-demand by the FEA whenever the network interface information changes. The default script you can find <a href="https://github.com/piotrjurkiewicz/agh-live-router/blob/master/configurations/simple/config/click_generator">there</a>. You may not want to modify generator script, unless you are making significant changes in router's functioning.</p>
 
+<p align="justify">You can also run system directly from ISO file in a virtual machine. If you want to put configuration and package files into an ISO image, you can use UltraISO application (for Windows). It has a feature of editing ISO images and adding additional files.</p>
+
+<h3>Packages</h3>
+
+<p align="justify">Distribution supports simple addition of Click packages modules. Package modules, compiles as kernel modules (.ko) should be placed in "packages" directory. Similar as "config" directory, this should be created manually too. After placing .ko file in "packages" you should do the following things:</p>
+
+<p align="justify">a) In <code>config.boot</code> file you should add path to module in "kernel-click modules":</p>
+
+<pre><code>kernel-click-modules: "/usr/local/lib/proclikefs.ko:/usr/local/lib/click.ko:<span style="color: red;">/live/image/packages/package.ko</span>"</code></pre>
+
 <h3>Download</h3>
 <p><a href="http://pluton.kt.agh.edu.pl/~pjurkiewicz/agh-live-router.iso">ISO image</a></p>
 
