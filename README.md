@@ -15,7 +15,7 @@ ISO file contains image of a live system. Distribution is based on Debian 6.0 (S
 Usage
 -----
 
-Bootable live USB drive can be created with the [UNetbootin](http://unetbootin.sourceforge.net/) application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory must be created manually. The directory should contain the following files:
+Bootable live USB drive can be created with the [UNetbootin](http://unetbootin.sourceforge.net/) application. After creation of USB drive, you may want to put router configuration files on the USB. The configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory should contain the following files:
 
     X:\config\config.boot
     X:\config\click_generator
@@ -60,13 +60,13 @@ You can also run system directly from ISO file in a virtual machine. If you want
 Packages
 --------
 
-Distribution supports simple loading of Click packages. Packages modules, compiled as kernel modules (.ko) should be placed in "packages" directory. Similarly as "config" directory, this should be created manually too. After placing .ko file in "packages" you should do the following things:
+Distribution supports simple loading of Click packages. Packages modules, compiled as kernel modules (.ko) should be placed in "packages" directory. After placing .ko file in "packages" you should do the following things:
 
 a) In config.boot file you should add path to module in "kernel-click modules":
 
     kernel-click-modules: "/usr/local/lib/proclikefs.ko:/usr/local/lib/click.ko:/live/image/packages/package_name.ko"
 
-b) Moreover, require(packet_name); declaration should appear in Click's configuration. If you are using click_generator script to generate Click configuration, you should place appropriate instructions in function which generates headers:
+b) Moreover, require(package_name); declaration should appear in Click's configuration. If you are using click_generator script to generate Click configuration, you should place appropriate instructions in function which generates headers:
 
     function generate_click_config_header()
     {
