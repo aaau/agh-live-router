@@ -29,7 +29,7 @@
 
 <h3>Usage</h3>
 
-<p align="justify">Bootable live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. This configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory must be created manually first. The directory should contain the following files:</p>
+<p align="justify">Bootable live USB drive can be created with the <a href="http://unetbootin.sourceforge.net/">UNetbootin</a> application. After creation of USB drive, you may want to put router configuration files on the USB. This configuration will be automatically loaded on system startup. Configuration files should be placed in "config" directory on the USB drive. This directory should contain the following files:</p>
 
 <pre><code>X:\config\config.boot
 X:\config\click_generator
@@ -72,13 +72,13 @@ X:\config\click_generator
 
 <h3>Packages</h3>
 
-<p align="justify">Distribution supports simple loading of Click packages. Packages modules, compiled as kernel modules (.ko) should be placed in "packages" directory. Similarly as "config" directory, this should be created manually too. After placing .ko file in "packages" you should do the following things:</p>
+<p align="justify">Distribution supports simple loading of Click packages. Packages modules, compiled as kernel modules (.ko) should be placed in "packages" directory. After placing .ko file in "packages" you should do the following things:</p>
 
 <p align="justify">a) In <code>config.boot</code> file you should add path to module in "kernel-click modules":</p>
 
 <pre><code>kernel-click-modules: "/usr/local/lib/proclikefs.ko:/usr/local/lib/click.ko:<span style="color: red;">/live/image/packages/package_name.ko</span>"</code></pre>
 
-<p align="justify">b) Moreover, <code>require(packet_name);</code> declaration should appear in Click's configuration. If you are using <code>click_generator</code> script to generate Click configuration, you should place appropriate instructions in function which generates headers:</p>
+<p align="justify">b) Moreover, <code>require(package_name);</code> declaration should appear in Click's configuration. If you are using <code>click_generator</code> script to generate Click configuration, you should place appropriate instructions in function which generates headers:</p>
 
 <pre><code>function generate_click_config_header()
 {
