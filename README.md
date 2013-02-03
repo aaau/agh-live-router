@@ -95,5 +95,16 @@ Default user:
 Root:
 
     login:root
-    password:root  
+    password:root
 
+
+Screenshots
+-----------
+
+![1](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/1.png)
+![2](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/2.png)
+![3](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/3.png)
+![4](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/4.png)
+![5](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/5.png)
+![6](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/6.png)
+![7](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/7.png)
