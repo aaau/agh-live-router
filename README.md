@@ -81,7 +81,7 @@ b) Moreover, require(package_name); declaration should appear in Click's configu
 Download
 --------
 
-[Download ISO image](http://pluton.kt.agh.edu.pl/~pjurkiewicz/AGH Live Router/agh-live-router.iso)
+[Download ISO image](https://mega.co.nz/#!NcVBATaB!Qg6QmDpsPr7mO2iKSovFsDdSCwt5aaP07B9St3n8Epc)
 
 
 Credentials
