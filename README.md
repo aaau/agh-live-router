@@ -9,7 +9,7 @@ Find out more in [presentation](http://prezi.com/iez6ctgkd8dt/agh-live-router/).
 Details
 -------
 
-ISO file contains image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click modules. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.
+ISO file contains an image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click modules. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.
 
 
 Usage
@@ -58,7 +58,7 @@ The click_generator file contains an AWK script, which generates the kernel-leve
 Running in VM
 -------------
 
-You can also run system directly from ISO file in a virtual machine. We recommend using Oracle's VirtualBox. In VirtualBox you can simple create internal networks between virtual machines and therefore experiment with various topologies. However, you must carefully choose network adapter types. Our test showed that the best performance (more than 30MB/s across 3 VMs) can be achieved using Intel PRO/1000 MT Desktop (82540EM). Do not choose virtio-net adapter because Click's kernel module doesn work with driver, what results in very bad performance in that case.
+You can also run system directly from the ISO file in a virtual machine. We recommend using Oracle's VirtualBox. In VirtualBox you can simple create internal networks between virtual machines and therefore experiment with various topologies. However, you must carefully choose network adapter types. Our test showed that the best performance (more than 30MB/s across 3 VMs) can be achieved using Intel PRO/1000 MT Desktop (82540EM). Do not choose virtio-net adapter because Click's kernel module doesn't work with the driver, what results in very bad performance in that case.
 
 ![adapters](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/adapters.png)
 
