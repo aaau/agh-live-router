@@ -9,7 +9,7 @@ Find out more in [presentation](http://prezi.com/iez6ctgkd8dt/agh-live-router/).
 Details
 -------
 
-ISO file contains image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click modules. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.
+ISO file contains an image of a live system. Distribution is based on Debian 6.0 (Squeeze). It contains installed Click environment (linuxmodule version) and XORP suite. XORP starts automatically on system startup. XORP, during its initialization, loads Click modules. Therefore, router becomes operational automatically after system startup. Additionally, along with start of graphical environment, Clicky application starts. This allows fast verification of correctness of Click startup and configuration load.
 
 
 Usage
@@ -55,7 +55,14 @@ In case of AGH Live Router system, configuration file should contain the followi
 
 The click_generator file contains an AWK script, which generates the kernel-level Click configuration from the XORP configuration. The script is called on-demand by the FEA whenever the network interface information changes. The default script you can find [there](https://github.com/piotrjurkiewicz/agh-live-router/blob/master/configurations/simple/config/click_generator). You may not want to modify the generator script, unless you are making significant changes in router's forwarding mechanisms.
 
-You can also run system directly from ISO file in a virtual machine. If you want to put configuration and package files into an ISO image, you can use UltraISO application (for Windows). It has a feature of editing ISO images and adding additional files.
+Running in VM
+-------------
+
+You can also run system directly from the ISO file in a virtual machine. We recommend using Oracle's VirtualBox. In VirtualBox you can simple create internal networks between virtual machines and therefore experiment with various topologies. However, you must carefully choose network adapter types. Our test showed that the best performance (40MB/s across 3 VMs on i5-3570k, one core) can be achieved using Intel PRO/1000 MT Desktop or Intel PRO/1000 T Server. Do not choose virtio-net adapter because Click's kernel module doesn't work with the driver, what results in very bad performance in that case. Furthermore, our tests showed that the better performance can be achieved with enabled IO APIC (System -> Enable IO APIC).
+
+![adapters](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/adapters.png)
+
+If you want to put configuration and package files into an ISO image (so the configuration will be automatically loaded on VM start), you can use UltraISO application (for Windows). It has a feature of editing ISO images and adding additional files.
 
 Packages
 --------
