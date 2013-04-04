@@ -60,8 +60,6 @@ Running in VM
 
 You can also run system directly from the ISO file in a virtual machine. We recommend using Oracle's VirtualBox. In VirtualBox you can simple create internal networks between virtual machines and therefore experiment with various topologies. However, you must carefully choose network adapter types. Our test showed that the best performance (40MB/s across 3 VMs on i5-3570k, one core) can be achieved using Intel PRO/1000 MT Desktop or Intel PRO/1000 T Server. Do not choose virtio-net adapter because Click's kernel module doesn't work with the driver, what results in very bad performance in that case. Furthermore, our tests showed that the better performance can be achieved with enabled IO APIC (System -> Enable IO APIC).
 
-![adapters](https://raw.github.com/piotrjurkiewicz/agh-live-router/master/screenshots/adapters.png)
-
 If you want to put configuration and package files into an ISO image (so the configuration will be automatically loaded on VM start), you can use UltraISO application (for Windows). It has a feature of editing ISO images and adding additional files.
 
 Packages
