@@ -86,7 +86,7 @@ b) Moreover, require(package_name); declaration should appear in Click's configu
 Download
 --------
 
-[Download ISO image](https://mega.co.nz/#!NcVBATaB!Qg6QmDpsPr7mO2iKSovFsDdSCwt5aaP07B9St3n8Epc)
+[Download ISO image](https://mega.co.nz/#!OEIjhQhA!Cs1t5nstf0xzClakUT8vJwUcX5YSaLE4IzRzW0JPAr0)
 
 
 Credentials
